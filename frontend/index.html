@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Disease Risk Assessment | AI Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="logo">🫀 HeartAI Diagnostics</div>
+      <h1>Cardiovascular Risk Predictor</h1>
+      <p class="subtitle">AI-assisted clinical risk assessment powered by Scikit-learn Random Forest model</p>
+    </header>
+
+    <main class="main-content">
+      <form id="prediction-form" class="card form-card">
+        <h2>Patient Clinical Indicators</h2>
+        
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="age">Age (years)</label>
+            <input type="number" id="age" name="age" min="18" max="100" value="52" required>
+          </div>
+
+          <div class="form-group">
+            <label for="sex">Biological Sex</label>
+            <select id="sex" name="sex" required>
+              <option value="1" selected>Male</option>
+              <option value="0">Female</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="cp">Chest Pain Type</label>
+            <select id="cp" name="cp" required>
+              <option value="0" selected>0: Typical Angina</option>
+              <option value="1">1: Atypical Angina</option>
+              <option value="2">2: Non-Anginal Pain</option>
+              <option value="3">3: Asymptomatic</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="trestbps">Resting Blood Pressure (mm Hg)</label>
+            <input type="number" id="trestbps" name="trestbps" min="80" max="220" value="130" required>
+          </div>
+
+          <div class="form-group">
+            <label for="chol">Serum Cholesterol (mg/dl)</label>
+            <input type="number" id="chol" name="chol" min="100" max="600" value="240" required>
+          </div>
+
+          <div class="form-group">
+            <label for="fbs">Fasting Blood Sugar > 120 mg/dl</label>
+            <select id="fbs" name="fbs" required>
+              <option value="0" selected>No (<= 120 mg/dl)</option>
+              <option value="1">Yes (> 120 mg/dl)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="restecg">Resting ECG Results</label>
+            <select id="restecg" name="restecg" required>
+              <option value="0">0: Normal</option>
+              <option value="1" selected>1: ST-T Wave Abnormality</option>
+              <option value="2">2: Left Ventricular Hypertrophy</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="thalach">Max Heart Rate Achieved</label>
+            <input type="number" id="thalach" name="thalach" min="60" max="220" value="150" required>
+          </div>
+
+          <div class="form-group">
+            <label for="exang">Exercise-Induced Angina</label>
+            <select id="exang" name="exang" required>
+              <option value="0" selected>No</option>
+              <option value="1">Yes</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="oldpeak">ST Depression (Oldpeak)</label>
+            <input type="number" step="0.1" id="oldpeak" name="oldpeak" min="0" max="7" value="1.2" required>
+          </div>
+
+          <div class="form-group">
+            <label for="slope">Slope of Peak Exercise ST</label>
+            <select id="slope" name="slope" required>
+              <option value="0">0: Upsloping</option>
+              <option value="1" selected>1: Flat</option>
+              <option value="2">2: Downsloping</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ca">Major Vessels Colored (0-3)</label>
+            <input type="number" id="ca" name="ca" min="0" max="3" value="0" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="thal">Thalassemia Test Result</label>
+            <select id="thal" name="thal" required>
+              <option value="1">1: Normal</option>
+              <option value="2" selected>2: Fixed Defect</option>
+              <option value="3">3: Reversible Defect</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn primary-btn">
+          <span>Run AI Risk Evaluation</span>
+        </button>
+      </form>
+
+      <section id="result-card" class="card result-card hidden">
+        <h2>Assessment Diagnostic</h2>
+        <div id="risk-badge" class="badge">--</div>
+        
+        <div class="gauge-container">
+          <div class="metric-row">
+            <span>Estimated Disease Probability:</span>
+            <strong id="risk-probability">0%</strong>
+          </div>
+          <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <p id="recommendation-text" class="recommendation-text"></p>
+        
+        <button id="reset-btn" class="btn secondary-btn">Assess Another Patient</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Developed by <strong>Hemanath K</strong> | Integrated Frontend & Backend REST API</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
