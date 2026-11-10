@@ -113,4 +113,5 @@ heart-disease-prediction/
 **Hemanath K**  
 - GitHub: [@hemanathk636](https://github.com/hemanathk636)  
 - LinkedIn: [Hemanath K](https://www.linkedin.com/in/hemanath)  
-- LeetCode: [Hemanath25](https://leetcode.com/u/Hemanath25/)
+- LeetCode: [Hemanath25](https://leetcode.com/u/Hemanath25/)  
+- HackerRank: [KhemanathBtech24](https://hackerrank.com/profile/KhemanathBtech24)
